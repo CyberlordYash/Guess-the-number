@@ -1,11 +1,16 @@
 let number = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highscore = 0;
 console.log(number);
 
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
   console.log(typeof guess);
-
+  if (score <= 0) {
+    document.querySelector(".message").textContent = "You lost :(";
+    document.querySelector("body").style.backgroundImage =
+      "linear-gradient(to right, rgb(66, 2, 8),  rgb(208, 12, 19))";
+  }
   if (!guess) {
     document.querySelector(".message").textContent = "No value! ";
   } else if (guess == number) {
@@ -14,6 +19,10 @@ document.querySelector(".check").addEventListener("click", function () {
       "linear-gradient(to right, rgb(2, 92, 51), rgb(76, 206, 139))";
     document.querySelector(".number").textContent = number;
     document.querySelector(".number").style.width = "40rem";
+    if (highscore <= score) {
+      highscore = score;
+    }
+    document.querySelector(".highscore").textContent = String(highscore);
   } else if (guess > number) {
     if (score > 0) {
       document.querySelector(".message").textContent = "Too high value! ";

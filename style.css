@@ -17,6 +17,9 @@ body {
   color: #eee;
   background-image: linear-gradient(to right, rgb(2, 2, 66), rgb(55, 68, 151));
   /* background-color: #60b347; */
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
 }
 
 /* LAYOUT */
@@ -92,7 +95,7 @@ h1 {
   color: inherit;
   font-size: 5rem;
   padding: 2.5rem;
-  width: 25rem;
+  width: 20rem;
   text-align: center;
   display: block;
   margin-bottom: 3rem;
@@ -119,4 +122,21 @@ h1 {
 
 .label-score {
   margin-bottom: 2rem;
+}
+
+@keyframes example {
+  from {
+    background-image: linear-gradient(
+      to right,
+      rgb(2, 2, 66),
+      rgb(55, 68, 151)
+    );
+  }
+  to {
+    background-image: linear-gradient(
+      to right,
+      rgb(55, 68, 151),
+      rgb(2, 2, 66)
+    );
+  }
 }
